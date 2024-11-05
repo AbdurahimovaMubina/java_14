@@ -3,11 +3,6 @@ let obj = {
     password: "1234"
 }
 
-function handleSubmit(e) {
-    e.preventDefault()
-    console.log(e)
-}
-
 let modmeId = document.querySelector('.modme-id')
 let modmePassword = document.querySelector('.modme-password')
 const sendBtn = document.querySelector('.send-btn')
@@ -16,10 +11,21 @@ let inputFirst = ''
 let inputSecond = ''
 
 sendBtn.addEventListener('click', e => {
-    e.preventDefault
-    console.log(modmeId.value)
-    console.log(modmePassword.value)
+    e.preventDefault()
+    let newObj = {}
+    
+    newObj.modmeId = modmeId.value
+    newObj.modmePassword = modmePassword.value
+    console.log(newObj);
+  
+    if (obj.id == newObj.modmeId && obj.password == newObj.modmePassword) {
+      localStorage.setItem("token", JSON.stringify(newObj))
+      window.location.href = './HomePage.html'
+    } else {
+      alert('Parol yoki login xato')
+    }
 })
+
 
 modmeId.addEventListener('input', e => {
   inputFirst = e.target.value

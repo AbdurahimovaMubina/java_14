@@ -210,3 +210,7 @@ main {
 .globus {
     cursor: pointer;
 }
+
+.user-img img {
+    width: 100px;
+}
